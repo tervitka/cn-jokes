@@ -6,11 +6,19 @@ function App() {
   api.get('/random').then(response => console.log(response.data.value));
 
   return (
-    <header>
-      <h1>Chuck Norriss</h1>
-      <h2>jokes generator</h2>
-    </header>
-   
+    <div className="container">
+      <div className='row'>
+        <div className='col-4'>
+          <p>1</p>
+        </div>
+        <div className='col-4'>
+          <p>2</p>
+        </div>
+        <div className='col-4'>
+          <p>3</p>
+        </div>
+      </div>
+    </div>
   );
 }
 
