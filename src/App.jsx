@@ -1,17 +1,7 @@
-import { api } from './api';
-import { Heading, SimpleGrid } from '@chakra-ui/react';
+import { AppLayout } from "./components/AppLayout";
 
 function App() {
-
-  api.get('/random').then(response => console.log(response.data.value));
-
-  return (
-    <SimpleGrid>
-      <Heading>
-        Ahoj
-      </Heading>
-    </SimpleGrid>
-  );
+  return <AppLayout />;
 }
 
 export default App;
