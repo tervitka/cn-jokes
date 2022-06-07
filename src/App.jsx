@@ -1,17 +1,14 @@
 import './css/App.css';
 import { api } from './api';
-import { Heading, SimpleGrid } from '@chakra-ui/react';
+import Body from './components/Body';
+
 
 function App() {
 
   api.get('/random').then(response => console.log(response.data.value));
 
   return (
-    <SimpleGrid>
-      <Heading>
-        Ahoj
-      </Heading>
-    </SimpleGrid>
+    <Body />    
   );
 }
 
