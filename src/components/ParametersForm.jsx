@@ -1,4 +1,6 @@
 import {
+  Button,
+  Center,
   FormControl, 
   FormLabel, 
   NumberInput, 
@@ -6,27 +8,26 @@ import {
   NumberInputStepper, 
   NumberIncrementStepper, 
   NumberDecrementStepper,
-  Select,
-  Button,
+  Select
 } from '@chakra-ui/react';
 
 
 export default function ParametersForm() {
   return (
-    <>  
+    <Center as='form' w={['100%', '75%']} flexDirection={['column', 'row']}>
       <FormControl>
         <FormLabel>
           <NumberInput 
             max={50} 
             min={1} 
-            borderColor='#D68D00'
+            borderColor='orange.100'
             w={['100%','75%']}
             ml='auto'
           >
             <NumberInputField 
               id='amount' 
               placeholder="number of jokes" 
-              boxShadow='2px 2px 3px #D68D00'
+              boxShadow='2px 2px 3px orange'
             />
             <NumberInputStepper>
               <NumberIncrementStepper border='none' />
@@ -39,8 +40,8 @@ export default function ParametersForm() {
       <FormControl>
         <FormLabel>
           <Select
-            borderColor='#D68D00'
-            boxShadow='2px 2px 3px #D68D00'
+            borderColor='orange.100'
+            boxShadow='2px 2px 3px orange'
             placeholder='choose joke category'
           >
             <option value='option1'>Option 1</option>
@@ -62,6 +63,6 @@ export default function ParametersForm() {
           </Button>
         </FormLabel>
       </FormControl>
-    </>
+    </Center>
   )
 }

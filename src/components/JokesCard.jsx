@@ -1,20 +1,34 @@
 import { 
   Box
 } from "@chakra-ui/react";
+import { IconContext } from 'react-icons';
+import { FaQuoteLeft } from 'react-icons/fa';
 
-export default function JokesCard() {
+export default function JokesCard({ joke }) {
   return(
     <Box 
-      as="strong" 
-      maxW='sm'    
       bg='gray.100'
       borderRadius={5}
+      fontSize={20}
+      maxW='sm'    
       p={8}
-      pl={16}
+      pl={14}
+      position='relative'
+      textAlign='justify'
     >
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam in lorem sit amet leo accumsan lacinia. Etiam bibendum elit eget erat. 
-      Vivamus ac leo pretium faucibus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-      eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      <IconContext.Provider
+        value={{ color: 'white', size: '30px' }}
+      >
+        <Box 
+          position='absolute' 
+          left={3} 
+          top={4} 
+          as='icon'
+        >
+          <FaQuoteLeft />
+        </Box>
+      </IconContext.Provider>
+      {joke}
     </Box>        
   )
 }

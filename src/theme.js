@@ -4,8 +4,6 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'gray.400',
-        color: 'white',
         fontFamily: 'Source Sans Pro, cursive'
       },
     },
