@@ -1,4 +1,3 @@
-import './css/App.css';
 import { api } from './api';
 import { Heading, SimpleGrid } from '@chakra-ui/react';
 
