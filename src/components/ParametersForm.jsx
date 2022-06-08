@@ -56,8 +56,7 @@ export default function ParametersForm() {
             boxShadow='2px 2px 3px rgba(0, 0, 0, 15)'
             colorScheme='whatsapp'
             type='submit'
-            w='50%'
-            float={['right', 'initial']}
+            w={['100%', '50%']}
           >
             generate
           </Button>
