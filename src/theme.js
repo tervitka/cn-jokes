@@ -26,6 +26,7 @@ const theme = extendTheme({
     Heading: {
       baseStyle: {
         fontFamily: "Londrina Solid, cursive",
+        fontWeight: "light",
       },
     },
   },

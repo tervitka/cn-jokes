@@ -18,7 +18,7 @@ export function JokeListPage() {
           as="h3"
           size="md"
           marginBottom="3"
-          fontSize="2rem"
+          fontSize={["1.5rem", "2rem"]}
           mt="8"
           alignItems="left"
         >

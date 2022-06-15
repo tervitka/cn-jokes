@@ -15,12 +15,12 @@ export function Header() {
           bg="white"
           boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
           transform="matrix(1, -0.04, 0.03, 1, 0, 0)"
-          width="30rem"
-          height="7.5rem"
+          width={["17rem", "23rem", "32rem"]}
+          height={["5.5rem", "6.5rem", "7.5rem"]}
           marginX="auto"
         >
           <Heading
-            fontSize="5rem"
+            fontSize={["3rem", "4.2rem", "5rem"]}
             fontFamily="Londrina Solid"
             fontWeight="light"
           >
@@ -29,7 +29,7 @@ export function Header() {
         </Center>
         <Center>
           <Heading
-            fontSize="3rem"
+            fontSize={["2rem", "2.5rem", "3rem"]}
             color="white"
             fontFamily="Londrina Solid, cursive"
             fontWeight="light"

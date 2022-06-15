@@ -7,7 +7,7 @@ export function JokeCard({ joke }) {
     <Box
       bg="gray.100"
       borderRadius="5"
-      maxWidth="30%"
+      maxWidth={["95%", "95%", "45%", "45%", "30%"]}
       padding="8"
       paddingLeft="16"
       position="relative"
