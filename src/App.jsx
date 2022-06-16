@@ -1,16 +1,10 @@
-import { api } from './api';
-import { Heading, SimpleGrid } from '@chakra-ui/react';
+import SearchPage from './components/SearchPage';
 
 function App() {
 
-  api.get('/random').then(response => console.log(response.data.value));
 
   return (
-    <SimpleGrid>
-      <Heading>
-        Ahoj
-      </Heading>
-    </SimpleGrid>
+    <SearchPage />  
   );
 }
 
