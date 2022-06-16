@@ -5,20 +5,17 @@ export function Searchbar() {
   return (
     <>
       <Center
-        fontFamily="Lato, sans-serif"
-        w="400px"
-        h="45px"
+        width={["16rem", "19rem", "26rem"]}
+        height="3rem"
         bg="white"
         boxShadow="0px 4px 4px rgba(0, 0, 0, 0.5)"
         borderRadius="12px"
-        p="10px"
-        m="0"
       >
         <InputGroup>
           <Input
             type="text"
-            placeholder="search for a joke"
             borderColor="white"
+            placeholder="search for a joke"
           />
           <InputRightAddon
             children={<FiSearch size="2rem" />}
