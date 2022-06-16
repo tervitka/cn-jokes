@@ -1,17 +1,30 @@
-import {
-  Button,
-  Center,
-  FormControl,
-  FormLabel,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-  Select,
-} from "@chakra-ui/react";
 
-export function ParametersForm() {
+import { useState, useEffect } from "react";
+import { api } from "../api";
+import { Button, Center, FormControl, FormLabel, Select,
+  NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from "@chakra-ui/react";
+
+export function ParametersForm({ handleSetJoke }) {
+
+  const [categories, setCategories] = useState([])
+
+  const getJoke = () => {
+    api.get("/random")
+    .then(response => handleSetJoke(response.data.value))
+    .catch(error => console.log(error))
+  }
+
+  const getCategories = () => {
+    api.get("/categories")
+    .then(response => setCategories(response.data))
+    .catch(error => console.log(error))
+  }
+
+  useEffect(() => {
+    getJoke()
+    getCategories()
+  }, [])
+
   return (
     <Center
       as="form"
@@ -26,8 +39,9 @@ export function ParametersForm() {
             max="50"
             min="1"
             borderColor="white"
-            width={["100%", "75%"]}
-            marginLeft="auto"
+            width="100%"
+            marginX="auto"
+            marginY="2"
           >
             <NumberInputField
               id="amount"
@@ -51,11 +65,16 @@ export function ParametersForm() {
             boxShadow="1px 1px 0px 2px orange"
             placeholder="choose joke category"
             height="45px"
+            width="100%"
             borderRadius="10"
+            marginX="auto"
+            marginY="2"
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            {
+              categories.map (category => {
+                return <option key={category} value={category}>{category}</option>
+              })
+            }
           </Select>
         </FormLabel>
       </FormControl>
@@ -67,12 +86,14 @@ export function ParametersForm() {
             borderRadius="10"
             bg="green"
             color="white"
-            type="submit"
-            w={["100%", "50%"]}
+            width="50%"
             height="45px"
             fontFamily="Londrina Solid, cursive"
             fontWeight="light"
             fontSize="1.5rem"
+            marginX="auto"
+            marginY="2"
+            onClick={getJoke}
           >
             generate
           </Button>

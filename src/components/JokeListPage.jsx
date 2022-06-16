@@ -1,17 +1,23 @@
-import { Container, Flex, Heading, Button, Center } from "@chakra-ui/react";
+
+import { useState, useCallback } from "react";
 import { JokeCard } from "./JokeCard";
 import { ParametersForm } from "./ParametersForm";
-
-const jokeText =
-  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In dapibus augue non sapien. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam.";
+import { Container, Flex, Heading, Button, Center } from "@chakra-ui/react";
 
 export function JokeListPage() {
+
+  const [joke, setJoke] = useState("")
+
+  const handleSetJoke = useCallback((value) => {
+    setJoke(value)
+  },[])
   return (
     <>
       <Container
         as="main"
         maxW="container.xl"
         display="flex"
+        alignContent="center"
         flexDirection="column"
       >
         <Heading
@@ -20,7 +26,7 @@ export function JokeListPage() {
           marginBottom="3"
           fontSize={["1.5rem", "2rem"]}
           mt="8"
-          alignItems="left"
+          position="center"
         >
           let's generate:
         </Heading>
@@ -31,21 +37,15 @@ export function JokeListPage() {
           alignItems="center"
           justifyContent="center"
         >
-          <ParametersForm />
-        </Flex>
-
-        <Flex justify="center" gap="4" flexWrap="wrap" flexDirection="row">
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
-          <JokeCard joke={jokeText} />
+          <ParametersForm handleSetJoke={handleSetJoke} />
         </Flex>
       </Container>
+
+          <Container>
+            <Flex justify="center" gap="4" flexWrap="wrap" flexDirection="row">
+               <JokeCard joke={joke}/>
+            </Flex>
+          </Container>
 
       <Center>
         <Button
