@@ -97,5 +97,5 @@ export function ParametersForm({ handleSetJoke }) {
         </FormLabel>
       </FormControl>
     </Center>
-  );
+  )
 }

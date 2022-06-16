@@ -5,12 +5,13 @@ import { ParametersForm } from "./ParametersForm";
 import { Container, Flex, Heading, Button, Center } from "@chakra-ui/react";
 
 export function JokeListPage() {
-
-  const [joke, setJoke] = useState("")
+  
+  const [joke, setJoke] = useState("");
 
   const handleSetJoke = useCallback((value) => {
-    setJoke(value)
-  },[])
+    setJoke(value);
+  }, []);
+
   return (
     <>
       <Container
@@ -41,11 +42,11 @@ export function JokeListPage() {
         </Flex>
       </Container>
 
-          <Container>
-            <Flex justify="center" gap="4" flexWrap="wrap" flexDirection="row">
-               <JokeCard joke={joke}/>
-            </Flex>
-          </Container>
+      <Container>
+        <Flex justify="center" gap="4" flexWrap="wrap" flexDirection="row">
+          <JokeCard joke={joke} />
+        </Flex>
+      </Container>
 
       <Center>
         <Button
