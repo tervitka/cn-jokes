@@ -24,8 +24,8 @@ export function JokeListPage() {
           as="h3"
           size="md"
           marginBottom="3"
+          marginTop="8"
           fontSize={["1.5rem", "2rem"]}
-          mt="8"
           position="center"
         >
           let's generate:
@@ -50,16 +50,12 @@ export function JokeListPage() {
       <Center>
         <Button
           boxShadow="1px 4px 4px 1px green"
-          borderRadius="10"
           bg="white"
           color="green"
-          type="submit"
-          height="45px"
-          fontFamily="Londrina Solid, cursive"
-          fontWeight="light"
-          fontSize="1.5rem"
           position="center"
           marginTop="25"
+          height="3rem"
+          fontSize="1.5rem"
         >
           go back up
         </Button>

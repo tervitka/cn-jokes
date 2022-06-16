@@ -7,7 +7,7 @@ export function Header() {
       <Box
         as="header"
         bg="orange.400"
-        p="4rem"
+        padding="4rem"
       >
         <Center
           bg="white"

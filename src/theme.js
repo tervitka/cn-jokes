@@ -29,6 +29,13 @@ const theme = extendTheme({
         fontWeight: "light",
       },
     },
+    Button: {
+      baseStyle: {
+        fontFamily: "Londrina Solid, cursive",
+        fontWeight: "light",
+        borderRadius: "12",
+      },
+    },
   },
 });
 

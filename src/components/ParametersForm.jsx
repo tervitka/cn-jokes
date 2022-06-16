@@ -28,7 +28,7 @@ export function ParametersForm({ handleSetJoke }) {
   return (
     <Center
       as="form"
-      w={["100%", "75%"]}
+      width={["100%", "75%"]}
       display="flex"
       flexDirection={["column", "row"]}
       justifyContent="center"
@@ -36,7 +36,7 @@ export function ParametersForm({ handleSetJoke }) {
       <FormControl>
         <FormLabel>
           <NumberInput
-            max="50"
+            max="100"
             min="1"
             borderColor="white"
             width="100%"
@@ -45,10 +45,10 @@ export function ParametersForm({ handleSetJoke }) {
           >
             <NumberInputField
               id="amount"
-              placeholder="number of jokes"
               boxShadow="1px 1px 0px 2px orange"
-              height="45px"
-              borderRadius="10"
+              height="3rem"
+              borderRadius="12"
+              placeholder="number of jokes"
             />
             <NumberInputStepper>
               <NumberIncrementStepper border="none" />
@@ -63,12 +63,12 @@ export function ParametersForm({ handleSetJoke }) {
           <Select
             borderColor="white"
             boxShadow="1px 1px 0px 2px orange"
-            placeholder="choose joke category"
-            height="45px"
+            height="3rem"
             width="100%"
-            borderRadius="10"
+            borderRadius="12"
             marginX="auto"
             marginY="2"
+            placeholder="choose joke category"
           >
             {
               categories.map (category => {
@@ -83,14 +83,11 @@ export function ParametersForm({ handleSetJoke }) {
         <FormLabel>
           <Button
             boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-            borderRadius="10"
             bg="green"
             color="white"
-            width="50%"
-            height="45px"
-            fontFamily="Londrina Solid, cursive"
-            fontWeight="light"
+            height="3rem"
             fontSize="1.5rem"
+            width="50%"
             marginX="auto"
             marginY="2"
             onClick={getJoke}
