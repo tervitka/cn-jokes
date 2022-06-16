@@ -2,17 +2,11 @@
 import { useState, useEffect } from "react";
 import { api } from "../api";
 import { Button, Grid, FormControl, FormLabel, Select,
-  NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Container } from "@chakra-ui/react";
+  NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from "@chakra-ui/react";
 
-export function ParametersForm({ handleSetJoke }) {
+export function ParametersForm( { getJoke }) {
 
   const [categories, setCategories] = useState([])
-
-  const getJoke = () => {
-    api.get("/random")
-    .then(response => handleSetJoke(response.data.value))
-    .catch(error => console.log(error))
-  }
 
   const getCategories = () => {
     api.get("/categories")
@@ -21,13 +15,11 @@ export function ParametersForm({ handleSetJoke }) {
   }
 
   useEffect(() => {
-    getJoke()
     getCategories()
   }, [])
 
   return (
     <Grid
-      as="form"
       width={["100%", "75%"]}
       display="flex"
       flexDirection={["column", "row"]}

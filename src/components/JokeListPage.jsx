@@ -1,5 +1,6 @@
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { api } from "../api";
 import { JokeCard } from "./JokeCard";
 import { ParametersForm } from "./ParametersForm";
 import { Container, Flex, Heading, Button, Center } from "@chakra-ui/react";
@@ -11,6 +12,16 @@ export function JokeListPage() {
   const handleSetJoke = useCallback((value) => {
     setJoke(value);
   }, []);
+
+  const getJoke = () => {
+    api.get("/random")
+    .then(response => handleSetJoke(response.data.value))
+    .catch(error => console.log(error))
+  }
+
+  useEffect(() => {
+    getJoke()
+  }, [])
 
   return (
     <>
@@ -33,6 +44,7 @@ export function JokeListPage() {
 
           <ParametersForm
               handleSetJoke={handleSetJoke}
+              getJoke={getJoke}
               />
       </Container>
 
