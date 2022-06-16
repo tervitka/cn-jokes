@@ -1,13 +1,14 @@
+
 import React from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { JokeListPage } from "./JokeListPage";
+import { Box } from "@chakra-ui/react";
 
-export function AppLayout() {
+export function AppLayout( { children }) {
   return (
     <>
       <Header />
-      <JokeListPage />
+      <Box>{children}</Box>
       <Footer />
     </>
   );
