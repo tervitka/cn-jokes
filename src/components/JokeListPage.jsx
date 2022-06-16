@@ -18,32 +18,26 @@ export function JokeListPage() {
         as="main"
         maxW="container.xl"
         display="flex"
-        alignContent="center"
         flexDirection="column"
+        marginY="2rem"
+        centerContent="true"
       >
         <Heading
           as="h3"
           size="md"
-          marginBottom="3"
-          marginTop="8"
           fontSize={["1.5rem", "2rem"]}
           position="center"
         >
           let's generate:
         </Heading>
 
-        <Flex
-          marginTop="3"
-          marginBottom="14"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <ParametersForm handleSetJoke={handleSetJoke} />
-        </Flex>
+          <ParametersForm
+              handleSetJoke={handleSetJoke}
+              />
       </Container>
 
-      <Container>
-        <Flex justify="center" gap="4" flexWrap="wrap" flexDirection="row">
+      <Container marginY="2.5rem">
+        <Flex justify="center" gap={4} flexWrap="wrap" flexDirection="row">
           <JokeCard joke={joke} />
         </Flex>
       </Container>
@@ -54,9 +48,9 @@ export function JokeListPage() {
           bg="white"
           color="green"
           position="center"
-          marginTop="25"
           height="3rem"
           fontSize="1.5rem"
+          _hover={{ bg: "green", color: "white", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
         >
           go back up
         </Button>

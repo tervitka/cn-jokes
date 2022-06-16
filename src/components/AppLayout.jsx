@@ -8,7 +8,7 @@ export function AppLayout( { children }) {
   return (
     <>
       <Header />
-      <Box>{children}</Box>
+      <Box as="main">{children}</Box>
       <Footer />
     </>
   );

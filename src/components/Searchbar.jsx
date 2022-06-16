@@ -1,7 +1,9 @@
+
 import { Center, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { FiSearch } from "react-icons/fi";
 
 export function Searchbar() {
+
   return (
     <>
       <Center
@@ -9,7 +11,7 @@ export function Searchbar() {
         height="3rem"
         bg="white"
         boxShadow="0px 4px 4px rgba(0, 0, 0, 0.5)"
-        borderRadius="12px"
+        borderRadius={12}
       >
         <InputGroup>
           <Input

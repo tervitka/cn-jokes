@@ -1,8 +1,8 @@
 
 import { useState, useEffect } from "react";
 import { api } from "../api";
-import { Button, Center, FormControl, FormLabel, Select,
-  NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from "@chakra-ui/react";
+import { Button, Grid, FormControl, FormLabel, Select,
+  NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Container } from "@chakra-ui/react";
 
 export function ParametersForm({ handleSetJoke }) {
 
@@ -26,12 +26,12 @@ export function ParametersForm({ handleSetJoke }) {
   }, [])
 
   return (
-    <Center
+    <Grid
       as="form"
       width={["100%", "75%"]}
       display="flex"
       flexDirection={["column", "row"]}
-      justifyContent="center"
+      marginTop={3}
     >
       <FormControl>
         <FormLabel>
@@ -39,15 +39,12 @@ export function ParametersForm({ handleSetJoke }) {
             max="100"
             min="1"
             borderColor="white"
-            width="100%"
-            marginX="auto"
-            marginY="2"
           >
             <NumberInputField
               id="amount"
               boxShadow="1px 1px 0px 2px orange"
               height="3rem"
-              borderRadius="12"
+              borderRadius={12}
               placeholder="number of jokes"
             />
             <NumberInputStepper>
@@ -64,10 +61,7 @@ export function ParametersForm({ handleSetJoke }) {
             borderColor="white"
             boxShadow="1px 1px 0px 2px orange"
             height="3rem"
-            width="100%"
-            borderRadius="12"
-            marginX="auto"
-            marginY="2"
+            borderRadius={12}
             placeholder="choose joke category"
           >
             {
@@ -87,15 +81,13 @@ export function ParametersForm({ handleSetJoke }) {
             color="white"
             height="3rem"
             fontSize="1.5rem"
-            width="50%"
-            marginX="auto"
-            marginY="2"
             onClick={getJoke}
+            _hover={{ bg: "orange" }}
           >
             generate
           </Button>
         </FormLabel>
       </FormControl>
-    </Center>
+    </Grid>
   )
 }
