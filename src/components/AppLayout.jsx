@@ -1,10 +1,8 @@
-
-import React from "react";
+import { Box } from "@chakra-ui/react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { Box } from "@chakra-ui/react";
 
-export function AppLayout( { children }) {
+export function AppLayout({ children }) {
   return (
     <>
       <Header />

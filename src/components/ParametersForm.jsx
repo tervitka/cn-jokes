@@ -1,42 +1,47 @@
-
 import { useState, useEffect } from "react";
+import {
+  Button,
+  Grid,
+  FormControl,
+  FormLabel,
+  Select,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+} from "@chakra-ui/react";
 import { api } from "../api";
-import { Button, Grid, FormControl, FormLabel, Select,
-  NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from "@chakra-ui/react";
 
-export function ParametersForm( { getJoke }) {
-
-  const [categories, setCategories] = useState([])
+export function ParametersForm({ onGenerate }) {
+  const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
-    api.get("/categories")
-    .then(response => setCategories(response.data))
-    .catch(error => console.log(error))
-  }
+    api
+      .get("/categories")
+      .then((response) => setCategories(response.data))
+      .catch((error) => console.log(error));
+  };
 
   useEffect(() => {
-    getCategories()
-  }, [])
+    getCategories();
+  }, []);
 
   return (
     <Grid
       width={["100%", "75%"]}
       display="flex"
       flexDirection={["column", "row"]}
-      marginTop={3}
+      marginTop="2rem"
     >
       <FormControl>
         <FormLabel>
-          <NumberInput
-            max="100"
-            min="1"
-            borderColor="white"
-          >
+          <NumberInput max="100" min="1" borderColor="white">
             <NumberInputField
               id="amount"
               boxShadow="1px 1px 0px 2px orange"
               height="3rem"
-              borderRadius={12}
+              borderRadius="0.7rem"
               placeholder="number of jokes"
             />
             <NumberInputStepper>
@@ -53,14 +58,16 @@ export function ParametersForm( { getJoke }) {
             borderColor="white"
             boxShadow="1px 1px 0px 2px orange"
             height="3rem"
-            borderRadius={12}
+            borderRadius="0.7rem"
             placeholder="choose joke category"
           >
-            {
-              categories.map (category => {
-                return <option key={category} value={category}>{category}</option>
-              })
-            }
+            {categories.map((category) => {
+              return (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              );
+            })}
           </Select>
         </FormLabel>
       </FormControl>
@@ -73,7 +80,7 @@ export function ParametersForm( { getJoke }) {
             color="white"
             height="3rem"
             fontSize="1.5rem"
-            onClick={getJoke}
+            onClick={onGenerate}
             _hover={{ bg: "orange" }}
           >
             generate
@@ -81,5 +88,5 @@ export function ParametersForm( { getJoke }) {
         </FormLabel>
       </FormControl>
     </Grid>
-  )
+  );
 }

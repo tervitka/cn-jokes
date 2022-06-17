@@ -1,12 +1,10 @@
-
 import { useState, useCallback, useEffect } from "react";
+import { Container, Flex, Heading, Button, Center } from "@chakra-ui/react";
 import { api } from "../api";
 import { JokeCard } from "./JokeCard";
 import { ParametersForm } from "./ParametersForm";
-import { Container, Flex, Heading, Button, Center } from "@chakra-ui/react";
 
 export function JokeListPage() {
-  
   const [joke, setJoke] = useState("");
 
   const handleSetJoke = useCallback((value) => {
@@ -14,19 +12,19 @@ export function JokeListPage() {
   }, []);
 
   const getJoke = () => {
-    api.get("/random")
-    .then(response => handleSetJoke(response.data.value))
-    .catch(error => console.log(error))
-  }
+    api
+      .get("/random")
+      .then((response) => handleSetJoke(response.data.value))
+      .catch((error) => console.log(error));
+  };
 
   useEffect(() => {
-    getJoke()
-  }, [])
+    getJoke();
+  }, []);
 
   return (
     <>
       <Container
-        as="main"
         maxW="container.xl"
         display="flex"
         flexDirection="column"
@@ -42,14 +40,11 @@ export function JokeListPage() {
           let's generate:
         </Heading>
 
-          <ParametersForm
-              handleSetJoke={handleSetJoke}
-              getJoke={getJoke}
-              />
+        <ParametersForm onGenerate={getJoke} />
       </Container>
 
       <Container marginY="2.5rem">
-        <Flex justify="center" gap={4} flexWrap="wrap" flexDirection="row">
+        <Flex justify="center" gap="2rem" flexWrap="wrap" flexDirection="row">
           <JokeCard joke={joke} />
         </Flex>
       </Container>
@@ -62,7 +57,11 @@ export function JokeListPage() {
           position="center"
           height="3rem"
           fontSize="1.5rem"
-          _hover={{ bg: "green", color: "white", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+          _hover={{
+            bg: "green",
+            color: "white",
+            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          }}
         >
           go back up
         </Button>

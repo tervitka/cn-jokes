@@ -7,12 +7,12 @@ export function JokeCard({ joke }) {
       bg="gray.100"
       minWidth={["17rem", "23rem", "26rem"]}
       maxWidth={["95%", "45%", "30%"]}
-      padding={8}
-      paddingLeft={16}
+      padding="2rem"
+      paddingLeft="4.5rem"
       position="relative"
       boxShadow="base"
     >
-      <Box position="absolute" left={4} top={4}>
+      <Box position="absolute" left="1rem" top="1rem">
         <RiDoubleQuotesL size="2.4rem" color="white" />
       </Box>
       <Text>{joke}</Text>
