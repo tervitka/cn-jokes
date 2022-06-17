@@ -1,68 +1,92 @@
+import { useState, useEffect } from "react";
 import {
   Button,
-  Center,
-  FormControl, 
-  FormLabel, 
-  NumberInput, 
-  NumberInputField, 
-  NumberInputStepper, 
-  NumberIncrementStepper, 
+  Grid,
+  FormControl,
+  FormLabel,
+  Select,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
   NumberDecrementStepper,
-  Select
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
+import { api } from "../api";
 
+export function ParametersForm({ onGenerate }) {
+  const [categories, setCategories] = useState([]);
 
-export default function ParametersForm() {
+  const getCategories = () => {
+    api
+      .get("/categories")
+      .then((response) => setCategories(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
-    <Center as='form' w={['100%', '75%']} flexDirection={['column', 'row']}>
+    <Grid
+      width={["100%", "75%"]}
+      display="flex"
+      flexDirection={["column", "row"]}
+      marginTop="2rem"
+    >
       <FormControl>
         <FormLabel>
-          <NumberInput 
-            max={50} 
-            min={1} 
-            borderColor='orange.100'
-            w={['100%','75%']}
-            ml='auto'
-          >
-            <NumberInputField 
-              id='amount' 
-              placeholder="number of jokes" 
-              boxShadow='2px 2px 3px orange'
+          <NumberInput max="100" min="1" borderColor="white">
+            <NumberInputField
+              id="amount"
+              boxShadow="1px 1px 0px 2px orange"
+              height="3rem"
+              borderRadius="0.7rem"
+              placeholder="number of jokes"
             />
             <NumberInputStepper>
-              <NumberIncrementStepper border='none' />
-              <NumberDecrementStepper border='none' />
+              <NumberIncrementStepper border="none" />
+              <NumberDecrementStepper border="none" />
             </NumberInputStepper>
           </NumberInput>
         </FormLabel>
       </FormControl>
-        
+
       <FormControl>
         <FormLabel>
           <Select
-            borderColor='orange.100'
-            boxShadow='2px 2px 3px orange'
-            placeholder='choose joke category'
+            borderColor="white"
+            boxShadow="1px 1px 0px 2px orange"
+            height="3rem"
+            borderRadius="0.7rem"
+            placeholder="choose joke category"
           >
-            <option value='option1'>Option 1</option>
-            <option value='option2'>Option 2</option>
-            <option value='option3'>Option 3</option>
+            {categories.map((category) => {
+              return (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              );
+            })}
           </Select>
         </FormLabel>
       </FormControl>
-      
+
       <FormControl>
         <FormLabel>
           <Button
-            boxShadow='2px 2px 3px rgba(0, 0, 0, 15)'
-            colorScheme='whatsapp'
-            type='submit'
-            w={['100%', '50%']}
+            boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+            bg="green"
+            color="white"
+            height="3rem"
+            fontSize="1.5rem"
+            onClick={onGenerate}
+            _hover={{ bg: "orange" }}
           >
             generate
           </Button>
         </FormLabel>
       </FormControl>
-    </Center>
-  )
+    </Grid>
+  );
 }

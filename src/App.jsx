@@ -1,10 +1,11 @@
-import SearchPage from './components/SearchPage';
+import { AppLayout } from "./components/AppLayout";
+import { JokeListPage } from "./components/JokeListPage";
 
 function App() {
-
-
   return (
-    <SearchPage />  
+    <AppLayout>
+      <JokeListPage />
+    </AppLayout>
   );
 }
 
