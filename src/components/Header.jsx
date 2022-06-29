@@ -3,7 +3,7 @@ import { Searchbar } from "./Searchbar";
 
 export function Header() {
   return (
-    <Box as="header" bg="orange.400" padding="4rem">
+    <Box as="header" bg="orange.400" paddingY="4rem">
       <Center
         bg="white"
         boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
